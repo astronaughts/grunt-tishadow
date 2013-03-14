@@ -1,0 +1,26 @@
+{
+  "name": "grunt-tishadow",
+  "version": "0.0.1",
+  "description": "This is grunt plugin for TiShdow commands.",
+  "main": "grunt.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/astronaughts/grunt-tishadow.git"
+  },
+  "keywords": [
+    "grunt.js",
+    "titanium",
+    "tishadow",
+    "gruntplugin"
+  ],
+  "author": {
+    "name": "astronaughts"
+  },
+  "license": "MIT"
+}
