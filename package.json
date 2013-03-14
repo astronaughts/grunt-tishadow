@@ -1,6 +1,6 @@
 {
   "name": "grunt-tishadow",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "This is grunt plugin for TiShdow commands.",
   "main": "grunt.js",
   "directories": {
