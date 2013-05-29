@@ -1,11 +1,8 @@
 {
   "name": "grunt-tishadow",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "This is grunt plugin for TiShdow commands.",
   "main": "grunt.js",
-  "directories": {
-    "test": "test"
-  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },

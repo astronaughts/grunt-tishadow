@@ -7,7 +7,7 @@ This plugin requires Grunt `~0.4.0`
 
 If you haven't used [Grunt](http://gruntjs.com/) before, be sure to check out the [Getting Started](http://gruntjs.com/getting-started) guide, as it explains how to create a [Gruntfile](http://gruntjs.com/sample-gruntfile) as well as install and use Grunt plugins. Once you're familiar with that process, you may install this plugin with this command:
 
-```shell
+```
 npm install grunt-tishadow --save-dev
 ```
 
@@ -28,7 +28,7 @@ grunt.initConfig({
     options: {
       // Task-specific options go here.
     },
-    command: {
+    [some command]: {
       // Target-specific commands go here.
     },
   },
@@ -75,8 +75,10 @@ grunt.initConfig({
     appify: {},
     repl: {},
     clear: {},
+    log: {},
+    bundle: {}
   },
-})
+});
 ```
 
 #### Custom Options
@@ -88,33 +90,41 @@ grunt.initConfig({
       locale: 'ja',
       host: '192.168.0.111',
       port: 1234,
-      room: 'myroom',
+      room: 'myroom'
     },
     server: {
-      long_polling: true,
+      long_polling: true
     },
     run: {
       update: true,
       jshint: true,
-      tail_logs: true,
+      tail_logs: true
     },
     spec: {
       update: true,
       jshint: true,
-      junit_xml: true,
+      junit_xml: true
     },
     appify: {
-      destination: '../tmp',
+      destination: '../tmp'
     },
     repl: {},
     clear: {},
-  },
-})
-})
+    log: {},
+    bundle: {}
+  }
+});
 ```
 
 ## Contributing
 In lieu of a formal styleguide, take care to maintain the existing coding style. Add unit tests for any new or changed functionality. Lint and test your code using [Grunt](http://gruntjs.com/).
 
 ## Release History
-_(Nothing yet)_
+
+### v0.1.1
+
+* add `bundle` command and `--patch` option.
+
+### v0.1.0
+
+* first commit.
