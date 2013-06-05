@@ -28,7 +28,7 @@ grunt.initConfig({
     options: {
       // Task-specific options go here.
     },
-    [some command]: {
+    run: {
       // Target-specific commands go here.
     },
   },
@@ -37,47 +37,126 @@ grunt.initConfig({
 
 ### Options
 
-#### options.locale
+#### update
+Type: `Boolean`
+Default value: `null`
+
+Only send recently changed files.
+
+#### patch
+Type: `Boolean`
+Default value: `null`
+
+patch updated files without causing app restart.
+
+#### locale
 Type: `String`
 Default value: `null`
 
 set the locale in in the TiShadow app.
 
-#### options.host
+#### host
 Type: `String`
 Default value: `127.0.0.1`
 
 server host name / ip address.
 
-#### options.port
+#### port
 Type: `Number`
 Default value: `3000`
 
 server port.
 
-#### options.room
+#### room
 Type: `String`
 Default value: `null`
 
 server room.
 
+#### room
+Type: `String`
+Default value: `null`
+
+server room.
+
+#### junit
+Type: `Boolean`
+Default value: `null`
+
+output report as JUnit XML.
+
+#### jshint
+Type: `Boolean`
+Default value: `null`
+
+analyse code with JSHint.
+
+#### tail
+Type: `Boolean`
+Default value: `null`
+
+tail server logs on deploy.
+
+#### longPolling
+Type: `Boolean`
+Default value: `null`
+
+force long polling.
+
+#### preclear
+Type: `Boolean`
+Default value: `null`
+
+to be cleared before run the command..
+
+#### withAlloy
+Type: `Boolean`
+Default value: `null`
+
+run the alloy compile before tishadow command.
+
+#### alloy
+Type: `Object`
+
+specify the options of alloy compile.
+
+##### Example Alloy Options
+
+silent compile.
+
+```js
+options: {
+  withAlloy: true,
+  alloy: {
+    noBanner: true,
+    logLevel: 1,
+    platform: ['ios']
+  }
+}
+```
+
 ### Usage Examples
 
-#### Default Options
+#### Examples Options
 
 ```js
 grunt.initConfig({
   tishadow: {
-    options: {},
-    server: {},
-    run: {},
-    spec: {},
-    appify: {},
-    repl: {},
-    clear: {},
-    log: {},
-    bundle: {}
-  },
+    test: {
+      command: 'spec',
+      options: {
+        junit: true
+      }
+    },
+    run: {
+      command: 'run',
+      options: {
+        junit: true,
+        patch: true,
+        preclear: true
+      }
+    }
+  }
 });
 ```
 
@@ -86,32 +165,36 @@ grunt.initConfig({
 ```js
 grunt.initConfig({
   tishadow: {
-    options: {
-      locale: 'ja',
-      host: '192.168.0.111',
-      port: 1234,
-      room: 'myroom'
-    },
-    server: {
-      long_polling: true
+    test: {
+      command: 'spec',
+      options: {
+        junit: true
+      }
     },
     run: {
-      update: true,
-      jshint: true,
-      tail_logs: true
+      command: 'run',
+      options: {
+        update: true,
+        patch: true,
+        preclear: true
+      }
     },
-    spec: {
-      update: true,
-      jshint: true,
-      junit_xml: true
-    },
-    appify: {
-      destination: '../tmp'
-    },
-    repl: {},
-    clear: {},
-    log: {},
-    bundle: {}
+    // common options.
+    options: {
+      locale: 'en',
+      host: 'localhost',
+      port: 1234,
+      room: 'myroom',
+      jshint: false,
+      tail: true,
+      longPolling: true,
+      withAlloy: true,
+      alloy: {
+        noBanner: true,
+        logLevel: 1,
+        platform: ['ios']
+      }
+    }
   }
 });
 ```
@@ -120,6 +203,11 @@ grunt.initConfig({
 In lieu of a formal styleguide, take care to maintain the existing coding style. Add unit tests for any new or changed functionality. Lint and test your code using [Grunt](http://gruntjs.com/).
 
 ## Release History
+
+### v1.0.0
+
+* significant changes to the config.
+* Alloy supports.
 
 ### v0.1.1
 

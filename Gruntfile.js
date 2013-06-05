@@ -9,6 +9,38 @@ module.exports = function (grunt) {
   'use strict';
   
   grunt.initConfig({
+    tishadow: {
+      classic: {
+        command: 'run',
+        options: {
+          projectDir: './examples/classic_project/',
+          jshint: true,
+          withAlloy: false
+        }
+      },
+      alloy: {
+        command: 'run',
+        options: {
+          projectDir: './examples/alloy_project/',
+          withAlloy: true
+        }
+      },
+      options: {
+        // locale: 'en',
+        // host: 'localhost',
+        // port: 1234,
+        // room: 'myroom',
+        // jshint: false,
+        // tail: true,
+        // longPolling: true,
+        withAlloy: true,
+        alloy: {
+          // noBanner: true,
+          // logLevel: 1,
+          platform: ['ios']
+        }
+      }
+    },
     jshint: {
       all: [
         'tasks/**/*.js'
