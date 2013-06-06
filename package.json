@@ -20,7 +20,7 @@
     "name": "astronaughts"
   },
   "license": "MIT",
-  "devDependencies": {
+  "dependencies": {
     "async": "~0.2.9"
   }
 }
