@@ -32,7 +32,7 @@ exports.init = function(grunt) {
             }
             // -q, --platform <platform> Target mobile platform [android,ios,mobileweb]
             if (undefined !== options.alloy.platform) {
-                args.push('-q', options.alloy.platform.join(','));
+                args.push('-c', 'platform=' + options.alloy.platform.join(','));
             }
         }
 
