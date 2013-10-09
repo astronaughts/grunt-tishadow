@@ -77,6 +77,18 @@ Default value: `null`
 
 server room.
 
+#### platform
+Type: `String`
+Default value: `null`
+
+target platform.
+
+#### screencast
+Type: `Number`
+Default value: `null`
+
+instead of saving the screenshots you can stream them to the browser.
+
 #### junit
 Type: `Boolean`
 Default value: `null`
@@ -100,6 +112,12 @@ Type: `Boolean`
 Default value: `null`
 
 force long polling.
+
+#### ticaster
+Type: `Boolean`
+Default value: `null`
+
+connect to ticaster.
 
 #### preclear
 Type: `Boolean`
@@ -201,6 +219,11 @@ grunt.initConfig({
 In lieu of a formal styleguide, take care to maintain the existing coding style. Add unit tests for any new or changed functionality. Lint and test your code using [Grunt](http://gruntjs.com/).
 
 ## Release History
+
+### v2.0.0
+
+* TiShadow v2.0.2 supports.
+* Alloy v1.3.0 supports.
 
 ### v1.0.0
 

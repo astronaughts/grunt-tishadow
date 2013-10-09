@@ -6,16 +6,9 @@ exports.init = function(grunt) {
 
     tishadow.commands = function(task) {
 
-        var commands    = ['server', 'run', 'spec', 'repl', 'appify', 'clear', 'log', 'bundle'],
-            options     = task.options(),
-            args        = [],
-            target      = null;
-
-        commands.forEach(function(command) {
-            if (task.data.command === command) {
-                target = task.data.command;
-            }
-        });
+        var options = task.options(),
+            args    = [],
+            target  = null;
 
         // tishadow commands
         switch (task.data.command){
@@ -29,6 +22,14 @@ exports.init = function(grunt) {
                 // -l, --long-polling force long polling
                 if (true === options.longPolling) {
                     args.push('-l');
+                }
+                // -i, --internal-ip <internal-ip> internal ip to bind to
+                if (undefined !== options.internalIP) {
+                    args.push('-i', options.internalIP);
+                }
+                // -z, --manage-versions manage and automatically update bundles
+                if (true === options.manageVersions) {
+                    args.push('-z');
                 }
                 break;
 
@@ -66,6 +67,14 @@ exports.init = function(grunt) {
                 // -r, --room <room> server room
                 if (undefined !== options.room) {
                     args.push('-r', options.room);
+                }
+                // -c, --ticaster connect to ticaster
+                if (true === options.ticaster) {
+                    args.push('-c');
+                }
+                // -P, --platform <platform> target platform
+                if (undefined !== options.platform) {
+                    args.push('-P', options.platform);
                 }
                 break;
 
@@ -117,6 +126,39 @@ exports.init = function(grunt) {
                 if (undefined !== options.room) {
                     args.push('-r', options.room);
                 }
+                // -c, --ticaster connect to ticaster
+                if (true === options.ticaster) {
+                    args.push('-c');
+                }
+                // -P, --platform <platform> target platform
+                if (undefined !== options.platform) {
+                    args.push('-P', options.platform);
+                }
+                break;
+
+            case 'screenshot':
+                // tishadow screenshot
+                args.push('screenshot');
+                // -o, --host <host> server host name / ip address
+                if (undefined !== options.host) {
+                    args.push('-o', options.host);
+                }
+                // -p, --port <port> server port
+                if (undefined !== options.port) {
+                    args.push('-p', options.port);
+                }
+                // -r, --room <room> server room
+                if (undefined !== options.room) {
+                    args.push('-r', options.room);
+                }
+                // --screencast <[n]ms> instead of saving the screenshots you can stream them to the browser
+                if (undefined !== options.screencast) {
+                    args.push('--screencast', options.screencast);
+                }
+                // -P, --platform <platform> target platform
+                if (undefined !== options.platform) {
+                    args.push('-P', options.platform);
+                }
                 break;
 
             case 'appify':
@@ -138,21 +180,90 @@ exports.init = function(grunt) {
                 if (undefined !== options.room) {
                     args.push('-r', options.room);
                 }
+                // -c, --ticaster connect to ticaster
+                if (true === options.ticaster) {
+                    args.push('-c');
+                }
                 break;
 
             case 'clear':
                 // tishadow clear
                 args.push('clear');
+                // -o, --host <host> server host name / ip address
+                if (undefined !== options.host) {
+                    args.push('-o', options.host);
+                }
+                // -p, --port <port> server port
+                if (undefined !== options.port) {
+                    args.push('-p', options.port);
+                }
+                // -r, --room <room> server room
+                if (undefined !== options.room) {
+                    args.push('-r', options.room);
+                }
+                // -c, --ticaster connect to ticaster
+                if (true === options.ticaster) {
+                    args.push('-c');
+                }
+                // -P, --platform <platform> target platform
+                if (undefined !== options.platform) {
+                    args.push('-P', options.platform);
+                }
+                break;
+
+            case 'close':
+                // tishadow close
+                args.push('close');
+                // -o, --host <host> server host name / ip address
+                if (undefined !== options.host) {
+                    args.push('-o', options.host);
+                }
+                // -p, --port <port> server port
+                if (undefined !== options.port) {
+                    args.push('-p', options.port);
+                }
+                // -r, --room <room> server room
+                if (undefined !== options.room) {
+                    args.push('-r', options.room);
+                }
+                // -c, --ticaster connect to ticaster
+                if (true === options.ticaster) {
+                    args.push('-c');
+                }
+                // -P, --platform <platform> target platform
+                if (undefined !== options.platform) {
+                    args.push('-P', options.platform);
+                }
                 break;
 
             case 'log':
                 // tishadow log
                 args.push('log');
+                // -o, --host <host> server host name / ip address
+                if (undefined !== options.host) {
+                    args.push('-o', options.host);
+                }
+                // -p, --port <port> server port
+                if (undefined !== options.port) {
+                    args.push('-p', options.port);
+                }
+                // -r, --room <room> server room
+                if (undefined !== options.room) {
+                    args.push('-r', options.room);
+                }
+                // -c, --ticaster connect to ticaster
+                if (true === options.ticaster) {
+                    args.push('-c');
+                }
                 break;
 
             case 'bundle':
                 // tishadow bundle
                 args.push('bundle');
+                // -j, --jshint analyse code with JSHint
+                if (true === options.jshint && options.withAlloy !== true) {
+                    args.push('-j');
+                }
                 break;
 
             default:

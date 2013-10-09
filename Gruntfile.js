@@ -9,6 +9,7 @@ module.exports = function (grunt) {
   'use strict';
   
   grunt.initConfig({
+    pkg: grunt.file.readJSON('package.json'),
     tishadow: {
       classic: {
         command: 'run',
@@ -51,19 +52,15 @@ module.exports = function (grunt) {
         files: ['tasks/**/*.js'],
         tasks: ['jshint'],
         options: {
-           nospawn: true
+           interrupt: true
         }
       }
     }
   });
 
-  // Actually load this plugin's task(s).
-  grunt.loadTasks('tasks');
-
-  // These plugins provide necessary tasks.
   grunt.loadNpmTasks('grunt-contrib-jshint');
   grunt.loadNpmTasks('grunt-contrib-watch');
+  grunt.loadNpmTasks('grunt-tishadow');
 
-  // By default, lint and run all tests.
   grunt.registerTask('default', ['jshint']);
 };
