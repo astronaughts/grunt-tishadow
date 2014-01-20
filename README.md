@@ -47,6 +47,12 @@ Default value: `null`
 
 patch updated files without causing app restart.
 
+#### platform
+Type: `String`
+Default value: `null`
+
+set the target platform to send builds 
+
 #### locale
 Type: `String`
 Default value: `null`
@@ -64,12 +70,6 @@ Type: `Number`
 Default value: `3000`
 
 server port.
-
-#### room
-Type: `String`
-Default value: `null`
-
-server room.
 
 #### room
 Type: `String`
@@ -101,37 +101,17 @@ Default value: `null`
 
 force long polling.
 
+#### type
+Type: `String`
+Default value: `null`
+
+the testing library to be used for spec: jasmine, mocha-should or mocha-chai
+
 #### preclear
 Type: `Boolean`
 Default value: `null`
 
 to be cleared before run the command..
-
-#### withAlloy
-Type: `Boolean`
-Default value: `null`
-
-run the alloy compile before tishadow command.
-
-#### alloy
-Type: `Object`
-
-specify the options of alloy compile.
-
-##### Example Alloy Options
-
-silent compile.
-
-```js
-options: {
-  withAlloy: true,
-  alloy: {
-    noBanner: true,
-    logLevel: 1,
-    platform: ['ios']
-  }
-}
-```
 
 ### Usage Examples
 
@@ -186,12 +166,6 @@ grunt.initConfig({
       jshint: false,
       tail: true,
       longPolling: true,
-      withAlloy: true,
-      alloy: {
-        noBanner: true,
-        logLevel: 1,
-        platform: ['ios']
-      }
     }
   }
 });

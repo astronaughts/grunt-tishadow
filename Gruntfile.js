@@ -14,15 +14,14 @@ module.exports = function (grunt) {
         command: 'run',
         options: {
           projectDir: './examples/classic_project/',
-          jshint: true,
-          withAlloy: false
+          jshint: true
         }
       },
       alloy: {
         command: 'run',
         options: {
           projectDir: './examples/alloy_project/',
-          withAlloy: true
+          platform  : 'android'
         }
       },
       options: {
@@ -33,12 +32,6 @@ module.exports = function (grunt) {
         // jshint: false,
         // tail: true,
         // longPolling: true,
-        withAlloy: true,
-        alloy: {
-          // noBanner: true,
-          // logLevel: 1,
-          platform: ['ios']
-        }
       }
     },
     jshint: {
@@ -66,4 +59,6 @@ module.exports = function (grunt) {
 
   // By default, lint and run all tests.
   grunt.registerTask('default', ['jshint']);
+  grunt.registerTask('classic', ['tishadow:classic']);
+  grunt.registerTask('alloy', ['tishadow:alloy']);
 };
