@@ -49,6 +49,9 @@ module.exports = function(grunt) {
             tishadow_worker.stdout.on('data', function(data) {
                 grunt.log.write(data);
             });
+            tishadow_worker.stderr.on('data', function(data) {
+                grunt.log.write(data);
+            });
         });
     });
 };
