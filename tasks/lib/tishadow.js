@@ -72,6 +72,10 @@ exports.init = function(grunt) {
                 if (undefined !== options.room) {
                     args.push('-r', options.room);
                 }
+                // -s, --skip-alloy-compile
+                if (undefined !== options.skipAlloyCompile) {
+                    args.push('-s');
+                }
                 break;
 
             case 'spec':
