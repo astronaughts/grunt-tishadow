@@ -51,7 +51,7 @@ patch updated files without causing app restart.
 Type: `String`
 Default value: `null`
 
-set the target platform to send builds 
+set the target platform to send builds
 
 #### locale
 Type: `String`
@@ -111,7 +111,13 @@ the testing library to be used for spec: jasmine, mocha-should or mocha-chai
 Type: `Boolean`
 Default value: `null`
 
-to be cleared before run the command..
+to be cleared before run the command.
+
+#### skipAlloyCompile
+Type: `Boolean`
+Default value: `null`
+
+if in an alloy project, skips alloy compilation.
 
 ### Usage Examples
 
