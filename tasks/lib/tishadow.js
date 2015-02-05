@@ -72,6 +72,11 @@ exports.init = function(grunt) {
                 if (undefined !== options.room) {
                     args.push('-r', options.room);
                 }
+                // -f, --alloy-compile-file
+                if (undefined !== options.alloyCompileFile) {
+                    args.push('-f');
+                    args.push(options.alloyCompileFile);
+                }
                 // -s, --skip-alloy-compile
                 if (undefined !== options.skipAlloyCompile) {
                     args.push('-s');
