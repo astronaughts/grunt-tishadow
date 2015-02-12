@@ -37,6 +37,10 @@ grunt.initConfig({
 
 ### Options
 
+#### watch
+Type: `Boolean`
+Default value: `null`
+
 #### update
 Type: `Boolean`
 Default value: `null`

@@ -34,8 +34,14 @@ exports.init = function(grunt) {
                 break;
 
             case 'run':
+                // watch for changes
+                if (true === options.watch) {
+                  args.push("@");
+                }
+
                 // tishadow run
                 args.push('run');
+                
                 // -u, --update Only send recently changed files
                 if (true === options.update) {
                     args.push('-u');
@@ -74,8 +80,7 @@ exports.init = function(grunt) {
                 }
                 // -f, --alloy-compile-file
                 if (undefined !== options.alloyCompileFile) {
-                    args.push('-f');
-                    args.push(options.alloyCompileFile);
+                    args.push('-f', options.alloyCompileFile);
                 }
                 // -s, --skip-alloy-compile
                 if (undefined !== options.skipAlloyCompile) {
@@ -84,8 +89,14 @@ exports.init = function(grunt) {
                 break;
 
             case 'spec':
+                // watch for changes
+                if (true === options.watch) {
+                  args.push("@");
+                }
+
                 // tishadow spec
                 args.push('spec');
+
                 // -u, --update Only send recently changed files
                 if (true === options.update) {
                     args.push('-u');
