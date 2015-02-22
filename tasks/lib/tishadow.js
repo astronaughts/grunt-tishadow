@@ -126,7 +126,7 @@ exports.init = function(grunt) {
                     args.push('-j');
                 }
                 // -t, --type analyse code with JSHint
-                if (undefined === options.type) {
+                if (undefined !== options.type) {
                     args.push('-t', options.type);
                 }
                 // -x, --junit-xml output report as JUnit XML
