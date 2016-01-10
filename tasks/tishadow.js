@@ -47,10 +47,14 @@ module.exports = function(grunt) {
 
             tishadow_worker.stdout.setEncoding('utf8');
             tishadow_worker.stdout.on('data', function(data) {
+              if (!options.silent) {
                 grunt.log.write(data);
+              }
             });
             tishadow_worker.stderr.on('data', function(data) {
+              if (!options.silent) {
                 grunt.log.write(data);
+              }
             });
         });
     });
