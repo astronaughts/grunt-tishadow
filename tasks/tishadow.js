@@ -2,8 +2,7 @@ module.exports = function(grunt) {
     'use strict';
 
     var async       = require('async'),
-        tishadow    = require('./lib/tishadow').init(grunt),
-        alloy       = require('./lib/alloy').init(grunt);
+        tishadow    = require('./lib/tishadow').init(grunt);
 
     grunt.registerMultiTask('tishadow', 'Run commands of TiShadow.', function() {
         var task    = this,
@@ -12,26 +11,6 @@ module.exports = function(grunt) {
             alloy_command, tishadow_command, alloy_worker, preclear_worker, tishadow_worker;
 
         async.series([
-            // alloy command
-            function(next) {
-                if (true !== options.withAlloy) {
-                    return next();
-                }
-
-                alloy_command = alloy.commands(task);
-                alloy_worker = grunt.util.spawn(alloy_command, function(error, result, code) {
-                    if (error) {
-                        grunt.log.error(error);
-                        return done();
-                    }
-                    next();
-                });
-
-                alloy_worker.stdout.setEncoding('utf8');
-                alloy_worker.stdout.on('data', function(data) {
-                    grunt.log.write(data);
-                });
-            },
             // preclear command
             function(next) {
                 if (true !== options.preclear) {
@@ -68,7 +47,14 @@ module.exports = function(grunt) {
 
             tishadow_worker.stdout.setEncoding('utf8');
             tishadow_worker.stdout.on('data', function(data) {
+              if (!options.silent) {
                 grunt.log.write(data);
+              }
+            });
+            tishadow_worker.stderr.on('data', function(data) {
+              if (!options.silent) {
+                grunt.log.write(data);
+              }
             });
         });
     });

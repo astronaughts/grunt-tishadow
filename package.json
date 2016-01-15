@@ -1,14 +1,14 @@
 {
-  "name": "grunt-tishadow",
-  "version": "1.0.1",
-  "description": "This is grunt plugin for TiShadow commands.",
+  "name": "grunt-contrib-tishadow",
+  "version": "1.2.2",
+  "description": "This is the official grunt plugin for TiShadow commands.",
   "main": "grunt.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/astronaughts/grunt-tishadow.git"
+    "url": "https://github.com/dbankier/grunt-tishadow.git"
   },
   "keywords": [
     "grunt.js",
@@ -17,10 +17,16 @@
     "gruntplugin"
   ],
   "author": {
-    "name": "astronaughts"
+    "name": ["astronaughts", "dbankier"]
   },
   "license": "MIT",
   "dependencies": {
-    "async": "~0.2.9"
+    "async": "~0.2.9",
+    "underscore": "~1.5.2"
+  },
+  "devDependencies": {
+    "grunt": "~0.4.2",
+    "grunt-contrib-watch": "~0.5.3",
+    "grunt-contrib-jshint": "~0.8.0"
   }
 }

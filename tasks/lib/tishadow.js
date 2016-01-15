@@ -1,3 +1,4 @@
+var _ = require("underscore");
 exports.init = function(grunt) {
     'use strict';
 
@@ -33,8 +34,14 @@ exports.init = function(grunt) {
                 break;
 
             case 'run':
+                // watch for changes
+                if (true === options.watch) {
+                  args.push("@");
+                }
+
                 // tishadow run
                 args.push('run');
+                
                 // -u, --update Only send recently changed files
                 if (true === options.update) {
                     args.push('-u');
@@ -43,12 +50,16 @@ exports.init = function(grunt) {
                 if (true === options.patch) {
                     args.push('-a');
                 }
+                // -P, --platform
+                if (undefined !== options.platform) {
+                    args.push('-P', _.isArray(options.platform) ? options.platform.join(',') : options.platform);
+                }
                 // -l, --locale <locale> Set the locale in in the TiShadow app
                 if (undefined !== options.locale) {
                     args.push('-l', options.locale);
                 }
                 // -j, --jshint analyse code with JSHint
-                if (true === options.jshint && options.withAlloy !== true) {
+                if (true === options.jshint) {
                     args.push('-j');
                 }
                 // -t, --tail-logs tail server logs on deploy
@@ -67,14 +78,32 @@ exports.init = function(grunt) {
                 if (undefined !== options.room) {
                     args.push('-r', options.room);
                 }
+                // -f, --alloy-compile-file
+                if (undefined !== options.alloyCompileFile) {
+                    args.push('-f', options.alloyCompileFile);
+                }
+                // -s, --skip-alloy-compile
+                if (undefined !== options.skipAlloyCompile) {
+                    args.push('-s');
+                }
                 break;
 
             case 'spec':
+                // watch for changes
+                if (true === options.watch) {
+                  args.push("@");
+                }
+
                 // tishadow spec
                 args.push('spec');
+
                 // -u, --update Only send recently changed files
                 if (true === options.update) {
                     args.push('-u');
+                }
+                // -P, --platform
+                if (undefined !== options.platform) {
+                    args.push('-P', _.isArray(options.platform) ? options.platform.join(',') : options.platform);
                 }
                 // -l, --locale <locale> Set the locale in in the TiShadow app
                 if (undefined !== options.locale) {
@@ -93,8 +122,12 @@ exports.init = function(grunt) {
                     args.push('-r', options.room);
                 }
                 // -j, --jshint analyse code with JSHint
-                if (true === options.jshint && options.withAlloy !== true) {
+                if (true === options.jshint) {
                     args.push('-j');
+                }
+                // -t, --type analyse code with JSHint
+                if (undefined !== options.type) {
+                    args.push('-t', options.type);
                 }
                 // -x, --junit-xml output report as JUnit XML
                 if (true === options.junit) {

@@ -1,4 +1,6 @@
-# grunt-tishadow
+# grunt-official-tishadow
+
+Forked from [https://github.com/astronaughts/grunt-tishadow] for maintenance purposes.
 
 ## Getting Started
 This plugin requires Grunt `~0.4.0`
@@ -6,13 +8,13 @@ This plugin requires Grunt `~0.4.0`
 If you haven't used [Grunt](http://gruntjs.com/) before, be sure to check out the [Getting Started](http://gruntjs.com/getting-started) guide, as it explains how to create a [Gruntfile](http://gruntjs.com/sample-gruntfile) as well as install and use Grunt plugins. Once you're familiar with that process, you may install this plugin with this command:
 
 ```
-npm install grunt-tishadow --save-dev
+npm install grunt-official-tishadow --save-dev
 ```
 
 One the plugin has been installed, it may be enabled inside your Gruntfile with this line of JavaScript:
 
 ```js
-grunt.loadNpmTasks('grunt-tishadow');
+grunt.loadNpmTasks('grunt-official-tishadow');
 ```
 
 ## The "tishadow" task
@@ -35,6 +37,10 @@ grunt.initConfig({
 
 ### Options
 
+#### watch
+Type: `Boolean`
+Default value: `null`
+
 #### update
 Type: `Boolean`
 Default value: `null`
@@ -46,6 +52,12 @@ Type: `Boolean`
 Default value: `null`
 
 patch updated files without causing app restart.
+
+#### platform
+Type: `String`
+Default value: `null`
+
+set the target platform to send builds
 
 #### locale
 Type: `String`
@@ -64,12 +76,6 @@ Type: `Number`
 Default value: `3000`
 
 server port.
-
-#### room
-Type: `String`
-Default value: `null`
-
-server room.
 
 #### room
 Type: `String`
@@ -101,37 +107,29 @@ Default value: `null`
 
 force long polling.
 
+#### type
+Type: `String`
+Default value: `null`
+
+the testing library to be used for spec: jasmine, mocha-should or mocha-chai
+
 #### preclear
 Type: `Boolean`
 Default value: `null`
 
-to be cleared before run the command..
+to be cleared before run the command.
 
-#### withAlloy
+#### alloyCompileFile
+Type: `String`
+Default value: `null`
+
+for selective alloy compilation
+
+#### skipAlloyCompile
 Type: `Boolean`
 Default value: `null`
 
-run the alloy compile before tishadow command.
-
-#### alloy
-Type: `Object`
-
-specify the options of alloy compile.
-
-##### Example Alloy Options
-
-silent compile.
-
-```js
-options: {
-  withAlloy: true,
-  alloy: {
-    noBanner: true,
-    logLevel: 1,
-    platform: ['ios']
-  }
-}
-```
+if in an alloy project, skips alloy compilation.
 
 ### Usage Examples
 
@@ -186,12 +184,6 @@ grunt.initConfig({
       jshint: false,
       tail: true,
       longPolling: true,
-      withAlloy: true,
-      alloy: {
-        noBanner: true,
-        logLevel: 1,
-        platform: ['ios']
-      }
     }
   }
 });
